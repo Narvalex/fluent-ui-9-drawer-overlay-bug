@@ -1,6 +1,6 @@
 # React + TypeScript + Vite
 
-To quicly run the app and see the error
+To quickly run the app and see the error
 - Clone the repo
 - Run `npm install`
 - Run `npm run dev`
