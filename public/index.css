@@ -1,0 +1,19 @@
+/* Check the useTheme hook to see the programatically change of this setting */
+:root {
+    background-color: #292929; /* This is used in useTheme() hook as well */
+    color-scheme: dark;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        color-scheme: light;
+        background-color: #ffffff; /* This is used in useTheme() hook as well */
+    }
+}
+
+body {
+    margin: 0px;
+
+    /* To hide the ugly horizontal scroll bar when some animations perform, like inline-drawer openings. */
+    overflow-x: hidden;
+}
