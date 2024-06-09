@@ -1,57 +1,37 @@
+import { useState } from "react";
 import "./App.css";
 import {
-  Dialog,
-  DialogTrigger,
-  DialogSurface,
-  DialogTitle,
-  DialogBody,
-  DialogActions,
-  DialogContent,
   Button,
+  OverlayDrawer,
+  DrawerHeader,
+  DrawerHeaderTitle,
+  DrawerBody,
 } from "@fluentui/react-components";
 
-function App() {
+export default function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    <div className="App">
-      Some text
-      <br />
-      <DefaultDialog />
+    <div>
+      <OverlayDrawer
+        as="aside"
+        open={isOpen}
+        onOpenChange={(_, { open }) => setIsOpen(open)}
+      >
+        <DrawerHeader>
+          <DrawerHeaderTitle>
+            Overlay Drawer
+          </DrawerHeaderTitle>
+        </DrawerHeader>
+
+        <DrawerBody>
+          <p>Drawer content</p>
+        </DrawerBody>
+      </OverlayDrawer>
+
+      <Button appearance="primary" onClick={() => setIsOpen(true)}>
+        Open Drawer
+      </Button>
     </div>
   );
 }
-
-export const DefaultDialog = () => {
-  return (
-    <Dialog>
-      <DialogTrigger disableButtonEnhancement>
-        <Button>Open dialog</Button>
-      </DialogTrigger>
-      {/* if dialog's surface is extracted to a separate component is fails */}
-      <DefaultDialogSurface />
-    </Dialog>
-  );
-};
-
-export const DefaultDialogSurface = () => {
-  return (
-    <DialogSurface>
-      <DialogBody>
-        <DialogTitle>Dialog title</DialogTitle>
-        <DialogContent>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
-          exercitationem cumque repellendus eaque est dolor eius expedita nulla
-          ullam? Tenetur reprehenderit aut voluptatum impedit voluptates in
-          natus iure cumque eaque?
-        </DialogContent>
-        <DialogActions>
-          <DialogTrigger disableButtonEnhancement>
-            <Button appearance="secondary">Close</Button>
-          </DialogTrigger>
-          <Button appearance="primary">Do Something</Button>
-        </DialogActions>
-      </DialogBody>
-    </DialogSurface>
-  );
-};
-
-export default App;
