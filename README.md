@@ -1,5 +1,12 @@
 # React + TypeScript + Vite
 
+To quicly run the app and see the error
+- Clone the repo
+- Run `npm install`
+- Run `npm run dev`
+- Open the drawer
+- Check error in dev tools
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
